@@ -1,19 +1,17 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button} from 'react-native';
 
-export default function ReviewDetails({ navigation }){
-
-    const pressHandler = () => {
-      navigation.goBack();
-    }
-
+export default function ReviewDetails(props,{route}){
+ 
     return(
         <View style={styles.container}>
-            <Text style={styles.titleText}>Hi there review </Text>
-            <Button title='back to Home Screen' onPress={pressHandler}/>
+           <Text>{props.route.params.title}</Text>
+           <Text>{props.route.params.body}</Text>
+           <Text>{props.route.params.rating}</Text>
         </View>
         )
 }
+
 
 const styles = StyleSheet.create({
     titleText: {

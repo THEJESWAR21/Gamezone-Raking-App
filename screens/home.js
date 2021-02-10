@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, FlatList, TouchableOpacity} from 'react-native';
-import DrawerStack from '../routes/drawer';
+import Card from '../shared/card';
 
 export default function Home({ navigation }){
   const [reviews, setReviews] = useState([
@@ -22,7 +22,9 @@ export default function Home({ navigation }){
             data={reviews}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails', item  )} >
+                <Card>
                 <Text style={styles.titleText}>{ item.title }</Text>
+                </Card>
               </TouchableOpacity>
             )}
           />
@@ -51,4 +53,3 @@ const styles = StyleSheet.create({
       padding: 20,
     },
   });
-  

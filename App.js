@@ -5,7 +5,7 @@ import React from 'react';
 import ReviewDetails from './screens/reviewdetails';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import About from './screens/about';
-
+import Header from './shared/header';
 
 
 
@@ -27,23 +27,20 @@ export default function App(){
 
 
 //import HomeStack to navigate
-function HomeStack() {
+function HomeStack({ navigation }) {
   return (
           <Stack.Navigator>
-    <Stack.Screen name="Home" component={Home} options={{ title: 'GameZone', headerStyle: {
+    <Stack.Screen name="Home" component={Home}  options={{ headerTitle: () => <Header navigation={navigation} title='GameZone'/> , headerStyle: {
           backgroundColor: '#eee',
           height: 60,
         }, }}  />
-    <Stack.Screen name="ReviewDetails" component={ReviewDetails} options={{ title: 'Review Details', headerStyle: {
+    <Stack.Screen name="ReviewDetails" component={ReviewDetails} options={{ title: 'ReviewDetails' , headerStyle: {
           backgroundColor: '#eee',
           height: 60,
+          backgroundColor: '#eee',
+          height: 60,
+        }, }}  />
 
-        }, }}  />
-<Stack.Screen name="About" component={About} options={{ title: 'About', headerStyle: {
-          backgroundColor: '#eee',
-          height: 60,
-
-        }, }}  />
         
   </Stack.Navigator>
 
@@ -51,10 +48,10 @@ function HomeStack() {
 }
 
 //import AboutStack to navigate
-function AboutStack() {
+function AboutStack({ navigation }) {
   return (
     <Stack.Navigator>
-    <Stack.Screen name="About" component={About} options={{ title: 'About', headerStyle: {
+    <Stack.Screen name="About" component={About} options={{ headerTitle: () => <Header navigation={navigation} title='About GameZone' />, headerStyle: {
           backgroundColor: '#eee',
           height: 60,
         }, }}  />
@@ -68,4 +65,3 @@ function AboutStack() {
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
-

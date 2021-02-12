@@ -31,7 +31,6 @@ function HomeStack({ navigation }) {
   return (
           <Stack.Navigator>
     <Stack.Screen name="Home" component={Home}  options={{ headerTitle: () => <Header navigation={navigation} title='GameZone'/> , headerStyle: {
-          backgroundColor: '#eee',
           height: 60,
         }, }}  />
     <Stack.Screen name="ReviewDetails" component={ReviewDetails} options={{ title: 'ReviewDetails' , headerStyle: {
@@ -52,7 +51,6 @@ function AboutStack({ navigation }) {
   return (
     <Stack.Navigator>
     <Stack.Screen name="About" component={About} options={{ headerTitle: () => <Header navigation={navigation} title='About GameZone' />, headerStyle: {
-          backgroundColor: '#eee',
           height: 60,
         }, }}  />
   </Stack.Navigator>
